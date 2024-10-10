@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { useProduct } from '../hooks/useProduct'
 import { ProductCard } from '../components/product-card'
@@ -6,6 +7,10 @@ export function ProductPage() {
   const { id } = useParams()
 
   const { product } = useProduct(+id!)
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
   
   return (
     <div className='flex-col'>
