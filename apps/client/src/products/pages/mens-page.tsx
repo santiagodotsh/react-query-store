@@ -2,7 +2,7 @@ import { useProducts } from '../hooks/useProducts'
 import { ProductList } from '../components/product-list'
 
 export function MensPage() {
-  const { products } = useProducts({ filterKey: "men's clothing" })
+  const { products } = useProducts("men's clothing")
 
   return (
     <div className='flex-col'>

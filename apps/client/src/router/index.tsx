@@ -4,6 +4,7 @@ import { CompleteListPage } from '../products/pages/complete-list-page'
 import { MensPage } from '../products/pages/mens-page'
 import { WomensPage } from '../products/pages/womens-page'
 import { NewProduct } from '../products/pages/new-product'
+import { ProductPage } from '../products/pages/product-page'
 import { ErrorPage } from '../error-page'
 
 export const router = createBrowserRouter([
@@ -27,6 +28,10 @@ export const router = createBrowserRouter([
       {
         path: 'new',
         element: <NewProduct />
+      },
+      {
+        path: 'product/:id',
+        element: <ProductPage />
       }
     ]
   }

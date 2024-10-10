@@ -2,7 +2,7 @@ import { useProducts } from '../hooks/useProducts'
 import { ProductList } from '../components/product-list'
 
 export function CompleteListPage() {
-  const { products } = useProducts({})
+  const { products } = useProducts()
   
   return (
     <div className='flex-col'>
