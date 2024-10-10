@@ -6,7 +6,13 @@ interface GetProductsProps {
 }
 
 export async function getProducts({ filterKey }: GetProductsProps): Promise<Product[]> {
-  const { data } = await fakeApi.get<Product[]>('/products')
+  const params = new URLSearchParams()
+
+  if (filterKey) {
+    params.append('category', filterKey)
+  }
+  
+  const { data } = await fakeApi.get<Product[]>('/products', { params })
 
   return data
 }
