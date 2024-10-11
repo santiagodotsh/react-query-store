@@ -23,3 +23,11 @@ export async function getProduct(id: number): Promise<Product> {
   
   return data
 }
+
+export async function createProduct(product: Omit<Product, 'id'>) {
+  const { data } = await fakeApi.post<Product>('/products', product)
+
+  await sleep(1000)
+
+  return data
+}

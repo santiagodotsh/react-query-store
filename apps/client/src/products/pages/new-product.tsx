@@ -6,6 +6,7 @@ import {
 } from '@nextui-org/react'
 import { Controller, useForm } from 'react-hook-form'
 import type { SubmitHandler } from 'react-hook-form'
+import { useProductMutation } from '../hooks/useProductMutation'
 
 interface FormInputs {
   title: string
@@ -16,6 +17,8 @@ interface FormInputs {
 }
 
 export function NewProduct() {
+  const { mutation } = useProductMutation()
+
   const { control, handleSubmit, watch } = useForm<FormInputs>({
     defaultValues: {
       title: '',
@@ -29,7 +32,7 @@ export function NewProduct() {
   const image = watch('image')
   
   const onSubmit: SubmitHandler<FormInputs> = (data) => {
-    console.log(data)
+    mutation.mutate(data)
   }
 
   return (
@@ -127,8 +130,9 @@ export function NewProduct() {
               type='submit'
               className='mt-2'
               color='primary'
+              isDisabled={mutation.isPending}
             >
-              Create
+              {mutation.isPending ? 'Loading...' : 'Create'}
             </Button>
           </div>
 
