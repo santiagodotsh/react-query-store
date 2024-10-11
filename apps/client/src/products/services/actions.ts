@@ -16,7 +16,7 @@ export async function getProducts(filterKey?: string): Promise<Product[]> {
   return data
 }
 
-export async function getProduct(id: number): Promise<Product> {
+export async function getProduct(id: string): Promise<Product> {
   const { data } = await fakeApi.get<Product>(`/products/${id}`)
 
   await sleep(1000)

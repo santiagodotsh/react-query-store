@@ -5,14 +5,14 @@ import type { Product } from '../interfaces/product'
 interface Props {
   product: Product
   full?: boolean
-  prefetch?: (id: number) => void
+  prefetch?: (id: string) => void
 }
 
 export function ProductCard({ product, full, prefetch }: Props) {
   return (
     <Link
       to={`/product/${product.id}`}
-      onMouseEnter={() => prefetch && prefetch(+product.id)}
+      onMouseEnter={() => prefetch && prefetch(product.id)}
     >
       <Card className='relative flex flex-col md:flex-row md:space-x-5 space-y-3 md:space-y-0 rounded-xl shadow-lg p-3 max-w-xs md:max-w-3xl mx-auto border border-white bg-white'>
         <div className='w-full md:w-1/3 bg-white grid place-items-center'>
