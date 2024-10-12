@@ -5,8 +5,8 @@ import {
   Textarea
 } from '@nextui-org/react'
 import { Controller, useForm } from 'react-hook-form'
-import type { SubmitHandler } from 'react-hook-form'
 import { useProductMutation } from '../hooks/useProductMutation'
+import type { SubmitHandler } from 'react-hook-form'
 
 interface FormInputs {
   title: string

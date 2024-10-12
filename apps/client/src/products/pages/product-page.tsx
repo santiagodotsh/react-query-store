@@ -6,7 +6,7 @@ import { ProductCard } from '../components/product-card'
 export function ProductPage() {
   const { id } = useParams()
 
-  const { product } = useProduct(+id!)
+  const { product } = useProduct(id as string)
 
   useEffect(() => {
     window.scrollTo(0, 0)

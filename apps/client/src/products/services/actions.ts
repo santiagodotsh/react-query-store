@@ -27,7 +27,7 @@ export async function getProduct(id: string): Promise<Product> {
 export async function createProduct(product: Omit<Product, 'id'>) {
   const { data } = await fakeApi.post<Product>('/products', product)
 
-  await sleep(1000)
+  await sleep(5000)
 
   return data
 }
